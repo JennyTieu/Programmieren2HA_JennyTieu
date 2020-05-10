@@ -35,23 +35,24 @@ public class ConnectionThread extends Thread{
 	@Override
 	public void run() {
 		
-			
-			try {
-					Socket socket=serverSocket.accept();
-					PrintWriter printWriter = new PrintWriter(socket.getOutputStream());
-					Scanner scanner = new Scanner(socket.getInputStream());
-					System.out.println(scanner.nextLine());
-					list.add(printWriter);
-					printWriter.println("Hallo Client :)");
-					
-					ReaderThread readerThread = new ReaderThread(scanner, queue);
-					list2.add(readerThread);
-					readerThread.start();
-
-					
-			} catch (Exception e) {
+			while(true) {
+				try {
+						Socket socket=serverSocket.accept();
+						PrintWriter printWriter = new PrintWriter(socket.getOutputStream());
+						Scanner scanner = new Scanner(socket.getInputStream());
+						System.out.println(scanner.nextLine());
+						list.add(printWriter);
+						printWriter.println("Hallo Client :)");
+						
+						ReaderThread readerThread = new ReaderThread(scanner, queue);
+						list2.add(readerThread);
+						readerThread.start();
 	
-				e.printStackTrace();
+						
+				} catch (Exception e) {
+		
+					e.printStackTrace();
+				}
 			}
 			
 		
