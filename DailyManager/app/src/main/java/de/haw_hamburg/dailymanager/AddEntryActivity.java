@@ -81,6 +81,17 @@ public class AddEntryActivity extends AppCompatActivity {
             }
 
         });
+
+        CalendarView calendarView = (CalendarView) findViewById(R.id.calendarView2);
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+                pDay =dayOfMonth;
+                pMonth=month;
+                pYear=year;
+            }
+        });
+
         final Intent intent = new Intent(AddEntryActivity.this, MainActivity.class);
         Button saveButton = (Button) findViewById(R.id.saveButton);
         saveButton.setOnClickListener(new View.OnClickListener(){
@@ -92,17 +103,6 @@ public class AddEntryActivity extends AppCompatActivity {
                 String[] timeArray= savedTime.split(":");
                 int pHour=Integer.parseInt(timeArray[0]);
                 int pMinute=Integer.parseInt(timeArray[1]);
-
-
-                CalendarView calendarView = (CalendarView) findViewById(R.id.calendarView2);
-                calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-                    @Override
-                    public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                        pDay =dayOfMonth;
-                        pMonth=month;
-                        pYear=year;
-                    }
-                });
 
                 EditText name = findViewById(R.id.editText5);
                 String eventName=name.getText().toString();
