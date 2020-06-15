@@ -42,9 +42,8 @@ public class MainActivity extends AppCompatActivity {
         Object obj = ReadService.readObject(MainActivity.this);
         if(obj != null){
             if (!(obj instanceof Event)){
-                Event eventObject;
-                eventObject= (Event) obj;
-                Log.i("MainEntry",eventObject.toString());
+                obj= (Event) obj;
+                //Log.i("MainEntry",eventObject.toString());
 
             }
             Log.i("MainEntry",obj.toString());
