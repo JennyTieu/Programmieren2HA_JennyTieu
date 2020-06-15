@@ -87,7 +87,7 @@ public class AddEntryActivity extends AppCompatActivity {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
                 pDay =dayOfMonth;
-                pMonth=month+1;
+                pMonth=month;
                 pYear=year;
             }
         });

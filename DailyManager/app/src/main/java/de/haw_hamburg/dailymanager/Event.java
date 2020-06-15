@@ -98,7 +98,7 @@ public class Event implements Serializable {
     @Override
     public String toString() {
         return "Event{" +
-                "startTime=" + startTime +
+                "startTime= " + getDay()+"." +(getMonth()+1)+"."+getYear()+", "+getHour()+":"+getMin()+
                 ", eventName='" + eventName + '\'' +
                 ", location='" + location + '\'' +
                 ", note='" + note + '\'' +

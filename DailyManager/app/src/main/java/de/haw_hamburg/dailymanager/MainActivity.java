@@ -43,9 +43,11 @@ public class MainActivity extends AppCompatActivity {
         if(obj != null){
             if (!(obj instanceof Event)){
                 obj= (Event) obj;
+
                 //Log.i("MainEntry",eventObject.toString());
 
             }
+            calenderView.setDate(((Event)obj).getStartTime().getTimeInMillis());
             Log.i("MainEntry",obj.toString());
         }
 
